@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="style.css">
+  </link>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box-container">
+      <div class="input-wrapper">
+        <div class="input-form">
+          <div class="day-wrapper">
+            <p class="input-text">D A Y</p>
+            <input class="input"id="day-input" placeholder="DD" type="">
+            <p class="error" id="day-error">Enter a Valid Date</p>
+          </div>
+          <div>
+            <p class="input-text">M O N T H</p>
+            <input class="input" id="month-input" placeholder="MM" type="">
+            <p class="error" id="month-error">Enter a Valid Month</p>
+          </div>
+          <div>
+            <p class="input-text">Y E A R</p>
+            <input class="input" id="year-input" placeholder="YYYY" type="">
+            <p class="error" id="year-error">Enter a Valid Year</p>
+          </div>
+        </div>
+        <div class="button-wrapper">
+          <hr class="line">
+          <button class="input-button"type="button" onclick="sendDate()">
+          <img class="img-button" src="assets\images\icon-arrow.svg">
+          </button>
+        </div>
+      </div>
+      <div class="output-wrapper">
+        <h1 class="text" id="year-text">-- years</h1>
+        <h1 class="text" id="month-text">-- months</h1>
+        <h1 class="text" id="day-text">-- days</h1>
+      </div>
+    </div>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Ryan Anggito Priono</a>.
+  </div>
+
+  <script>
+    let dayInput = document.getElementById("day-input")
+    let MonthInput = document.getElementById("month-input")
+    let YearInput = document.getElementById("year-input")
+    let dayError = document.getElementById("day-error")
+    let monthError = document.getElementById("month-error")
+    let yearError = document.getElementById("year-error")
+
+    var current = new Date();
+
+    let dayText = document.getElementById("day-text")
+    let monthText = document.getElementById("month-text")
+    let yearText = document.getElementById("year-text")
+
+    function sendDate() {
+      let status = [true,true,true];
+      var dateInput = new Date(YearInput.value, MonthInput.value, dayInput.value)
+      if (dayInput.value == "" || dayInput.value < 1 || dateInput.getMonth() == 2 && dayInput.value > 28 || dateInput.getMonth() % 2 == 1 && dayInput.value > 30 || dateInput.getMonth() % 2 == 0 && dayInput.value > 31) {
+        dayInput.style.backgroundColor = "white";
+        dayError.style.visibility = "visible";
+        dayError.style.opacity = 1;
+        status[0] = false;
+      } else{
+        dayError.style.visibility = "hidden";
+        dayError.style.opacity = 0;
+        status[0] = true;
+      }
+      if (MonthInput.value == "" || MonthInput.value > 12 || MonthInput.value < 1) {
+        MonthInput.style.backgroundColor = "white";
+        monthError.style.visibility = "visible";
+        monthError.style.opacity = 1;
+        status[1] = false;
+      }else{
+        monthError.style.visibility="hidden";
+        monthError.style.opacity= 0;
+        status[1] = true;
+      }
+      if(YearInput.value == "" || YearInput.value > current.getFullYear()) {
+        YearInput.style.backgroundColor = "white";
+        yearError.style.visibility = "visible";
+        yearError.style.opacity = 1;
+        status[2] = false;
+      } else{
+        yearError.style.visibility="hidden";
+        yearError.style.opacity= 0;
+        status[2] = true;
+      }
+      if (status.some((element)=>element==false)){
+        return
+      }
+      var year = current.getFullYear() - dateInput.getFullYear()
+      var month = current.getMonth() - dateInput.getMonth();
+      var day = current.getDate() - dateInput.getDate();
+
+      if (dateInput.getMonth() > current.getMonth() || current.getMonth() == dateInput.getMonth() && current.getDate() < dateInput.getDate()) {
+        console.log("testing")
+        month = current.getMonth() + 12 - dateInput.getMonth();
+        year--;
+      }
+
+      if (dateInput.getDate() > current.getDate()) {
+        month--;
+        let monthDay;
+        if (current.getMonth == 2) {
+          monthDay = 28
+        } else if (current.getMonth % 2 == 1) {
+          monthDay = 31
+        } else {
+          monthDay = 30
+        }
+        day = monthDay + current.getDate() - dateInput.getDate()
+      }
+
+      console.log(day)
+
+      yearText.innerText = year + " years"
+      monthText.innerText = month + " months"
+      dayText.innerText = day + " days"
+    }
+  </script>
+</body>
+
+</html>
