@@ -10,7 +10,8 @@
 }
 
 .container{
-    height: 500vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .navibar{
@@ -149,7 +150,7 @@ li{
     background-color: var(--sec-bg-color);
     align-items: center;
     justify-content: center;
-    padding: 0% 2% 0% 2%;
+    padding: 0% 2% 0% 10%;
     gap:50px;
 }
 
@@ -226,7 +227,63 @@ li{
 .card p{
     font-size: 1em;
 }
+
 .card span{
     font-weight: lighter;
     opacity: 0.5;
+}
+
+.early-access{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--sec-bg-color);
+    height: 50vh;
+    padding: 0%;
+    margin: 0%;
+}
+
+.earlyaccess-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(33,41,60,255);
+    width: 60%;
+    height: 70%;
+    color: white;
+    gap: 20px;
+}
+
+.earlyaccess-box p{
+    width: 70%;
+    text-align: center; 
+}
+
+.input-early-access{
+    width: 70%;
+    height: 20%;
+    display: flex;
+    gap: 20px;
+    border-radius: 30px;
+    border: none;
+}
+
+.input-early-access input{
+    width: 75%;
+    border-radius: inherit;
+    border: inherit;
+    padding-left: 20px;
+}
+
+.input-early-access button{
+    width: 25%;
+    border: inherit;
+    border-radius: inherit;
+    background-color: teal;
+    color: white;
+}
+
+.input-early-access button:hover{
+    cursor: pointer;
 }
