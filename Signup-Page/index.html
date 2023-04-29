@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Intro component with sign up form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text-wrapper">
+      <div class="title-wrapper">
+            Learn to code by watching others
+      </div>
+      <div class="description-wrapper">
+        See how experienced developers solve problems in real-time. Watching scripted tutorials is great, 
+        but understanding how developers think is invaluable. 
+      </div>
+    </div>
+    <div class="form-container">
+      <div class="fee">
+        <span>Try it free 7 days</span> then $20/mo. thereafter
+      </div>
+      <div class="form-wrapper">
+        <form class="form">
+          <img id="img1"class="hide"src="images\icon-error.svg">
+          <input id="firstName"class="input" type="text" placeholder="First Name">
+          <p class="hide error" id="firstName-error">First Name cannot be empty</p>
+          <img id="img2"class="hide" src="images\icon-error.svg">
+          <input id="lastName"class="input" type="text" placeholder="Last Name">
+          <p class="hide error" id="lastName-error">Last Name cannot be empty</p>
+          <img id="img3" class="hide"src="images\icon-error.svg">
+          <input id="email" class="input" type="email" placeholder="E-mail Address">
+          <p class="hide error" id="email-error">Email is invalid</p>
+          <img id="img4"class="hide" src="images\icon-error.svg">
+          <input id="password" class="input" type="password" placeholder="Password">
+          <p class="hide error" id="password-error">Password is invalid</p>
+          <button class="submit-input" type="button" onclick="checkData()">Claim your free trial</button> 
+        </form>
+        <p>
+          By clicking the button, you are agreeing to our Terms and Services
+        </p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+  <script>
+    firstName = document.getElementById("firstName")
+    lastName = document.getElementById("lastName")
+    email = document.getElementById("email")
+    password = document.getElementById("password")
+
+    img1 = document.getElementById("img1")
+    img2 = document.getElementById("img2")
+    img3 = document.getElementById("img3")
+    img4 = document.getElementById("img4")
+
+    errorFirst = document.getElementById("firstName-error")
+    errorLast = document.getElementById("lastName-error")
+    errorEmail = document.getElementById("email-error")
+    errorPassword = document.getElementById("password-error")
+
+    function checkData(){
+      status = [true,true,true,true]
+      if(firstName.value == ""){
+        errorFirst.classList.remove("hide")
+        img1.classList.remove("hide")
+        firstName.removeAttribute("placeholder");
+        firstName.classList.add("errorBorder")
+        status[0] = false
+      }else{
+        img1.classList.add("hide")
+        firstName.classList.remove("errorBorder")
+        errorFirst.classList.add("hide")
+        status[0] = true
+      }
+      if(lastName.value==""){
+        img2.classList.remove("hide")
+        errorLast.classList.remove("hide")
+        lastName.removeAttribute("placeholder");
+        lastName.classList.add("errorBorder")
+        status[1] = false
+      }else{
+        img2.classList.add("hide")
+        status[1] = true
+        lastName.classList.remove("errorBorder")
+        errorLast.classList.add("hide")
+      }
+      if(email.value==""){
+        img3.classList.remove("hide")
+        errorEmail.classList.remove("hide")
+        email.removeAttribute("placeholder");
+        email.classList.add("errorBorder")
+        status[2] = false
+      } else{
+        img3.classList.add("hide")
+        status[2] = true
+        email.classList.remove("errorBorder")
+        errorEmail.classList.add("hide")
+      }
+      if(password.value==""){
+        img4.classList.remove("hide")
+        errorPassword.classList.remove("hide")
+        password.removeAttribute("placeholder");
+        password.classList.add("errorBorder")
+        status[3] = false
+      }else{
+        img4.classList.add("hide")
+        status[3] = true
+        password.classList.remove("errorBorder")
+        errorPassword.classList.add("hide")
+      }
+    }
+  </script>
+</body>
+</html>
