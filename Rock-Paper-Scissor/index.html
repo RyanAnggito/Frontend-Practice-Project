@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="body-settings">
+    <div class="container">
+      <div class="desc-rps">
+        <img src="images\logo.svg" />
+        <div class="score-card">
+          <p class="text-blue-600 text-base font-bold">SCORE</p>
+          <p class="text-gray-700 text-6xl font-semibold">12</p>
+        </div>
+      </div>
+      <div class="rules-popup invisible">
+        <div class="rules-box">
+          <div class="rules-desc font-bold">
+            <p class="text-3xl">RULES</p>
+            <button class="opacity-20 text-2xl">X</button>
+          </div>
+          <img src="images\image-rules.svg">
+        </div>
+      </div>
+        <img src="images\bg-triangle.svg" class="relative top-20">
+        <div class="choose-red flex items-center justify-center border-custom border-solid border-rose-500 w-40 h-40 bg-white absolute bottom-32 rounded-full">
+            <img src="images\icon-rock.svg" class="bg-white text-slate-50">
+        </div>
+        <div class="choose-orange flex items-center justify-center border-custom border-solid border-orange-500 w-40 h-40 flex items-center justify-center bg-white absolute top-64 left rounded-full">
+            <img src="images\icon-scissors.svg" class="bg-white text-slate-50">
+        </div>
+        <div class="choose-blue flex items-center justify-center border-custom border-solid border-blue-500  w-40 h-40 flex items-center justify-center bg-white absolute top-64 right rounded-full">
+            <img src="images\icon-paper.svg" class="bg-white text-slate-50">
+      </div>
+      <button class="rules-wrapper text-white">Rules</button>
+    </div>
+  </body>
+</html>
