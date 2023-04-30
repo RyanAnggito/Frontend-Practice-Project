@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    list-style: none;
+}
+
+.body-settings{
+    height: 100vh;
+    background-image: radial-gradient(at top,#1F3253, #182041);
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.desc-rps{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 20%;
+    gap: 55%;
+    margin: 3%;
+    padding: 10px 50px;
+    border: solid rgba(255,255,255,0.2) 2.5px;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.score-card{
+    height: 80%;
+    width: 150px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    border-radius: inherit;
+}
+
+.rules-wrapper{
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    border: solid rgba(255,255,255,0.2) 2.5px;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+    height: 35px;
+}
+
+.rules-popup{
+    position: absolute;
+    z-index: 10px;
+    top:1px;
+    width: 100%;
+    background-color: black;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rules-box{
+    background-color: white;
+    width: 25%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.rules-desc{
+    width: 80%;
+    height: 40px;
+    position: relative;
+    bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hide{
+    display: none;
+}
+
+.left{
+    left:35rem;
+}
+
+.right{
+    right:35rem;
+}
+
+.border-custom{
+    border-width: 15px;
+}
+
+.choose-red{
+    box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.2), 0px 8px 0px rgba(190,18,60,0.7);
+}
+
+.choose-blue{
+    box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.2), 0px 8px 0px rgba(29,78,216,0.7);
+}
+
+.choose-orange{
+    box-shadow: inset 0px 8px 0px rgba(0, 0, 0, 0.2), 0px 8px 0px rgba(194,65,12,0.7);
+}
